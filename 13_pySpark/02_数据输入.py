@@ -1,7 +1,14 @@
 """
 RDD：弹性分布式数据集（Resilient Distributed Datasets）
 """
+import os
+
 from pyspark import SparkConf, SparkContext
+
+os.environ["PYSPARK_PYTHON"] = "D:/Program Files/Python311/python.exe"
+os.environ["SPARK_HOME"] = "D:/Program Files/Python311/Lib/site-packages/pyspark"
+
+
 
 # 创建 SparkConf 对象，配置 Spark 应用程序
 conf = SparkConf().setAppName("MySparkApp").setMaster("local[*]")
@@ -16,7 +23,7 @@ rdd3 = sc.parallelize("abcde")
 rdd4 = sc.parallelize({1, 2, 3, 4, 5})
 rdd5 = sc.parallelize({"key1": 1, "key2": 2, "key3": 3, "key4": 4})
 #文本
-rdd6 = sc.textFile("E:/study/py/code/python-learning/testfile.text")
+rdd6 = sc.textFile("F:/program/python/python-learning/file/testfile.text")
 
 # 打印RDD内容
 print(rdd1.collect())

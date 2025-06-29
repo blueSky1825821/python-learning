@@ -6,7 +6,12 @@ pyspark 执行环境入口对象：SparkContext
 数据计算：读取到的数据转换为RDD对象，调用RDD的成员方法完成计算
 数据输出：调用RDD的数据输出相关成员方法，将结果输出到list、tuple、dict、文本文件、数据库等
 """
+import os
+
 from pyspark import SparkConf, SparkContext
+
+os.environ["PYSPARK_PYTHON"] = "D:/Program Files/Python311/python.exe"
+os.environ["SPARK_HOME"] = "D:/Program Files/Python311/Lib/site-packages/pyspark"
 
 # 创建 SparkConf 对象，配置 Spark 应用程序
 conf = SparkConf().setAppName("MySparkApp").setMaster("local[*]")
